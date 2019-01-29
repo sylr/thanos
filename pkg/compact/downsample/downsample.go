@@ -3,6 +3,7 @@ package downsample
 import (
 	"math"
 	"path/filepath"
+	"runtime"
 	"sort"
 
 	"github.com/improbable-eng/thanos/pkg/block/metadata"
@@ -146,6 +147,11 @@ func Downsample(
 	if err = os.Remove(filepath.Join(bdir, "tombstones")); err != nil {
 		return id, errors.Wrap(err, "remove tombstones")
 	}
+	
+	// Force GC.
+	newb = nil
+	runtime.GC()
+	
 	return id, nil
 }
 
