@@ -116,10 +116,10 @@ func registerRule(m map[string]setupFunc, app *kingpin.Application, name string)
 		}
 
 		tsdbOpts := &tsdb.Options{
-			MinBlockDuration: *tsdbBlockDuration,
-			MaxBlockDuration: *tsdbBlockDuration,
-			Retention:        *tsdbRetention,
-			NoLockfile:       true,
+			MinBlockDuration:  *tsdbBlockDuration,
+			MaxBlockDuration:  *tsdbBlockDuration,
+			RetentionDuration: *tsdbRetention,
+			NoLockfile:        true,
 		}
 
 		lookupQueries := map[string]struct{}{}
