@@ -21,7 +21,6 @@ require (
 	github.com/hashicorp/memberlist v0.1.0
 	github.com/julienschmidt/httprouter v1.1.0 // indirect
 	github.com/lovoo/gcloud-opentracing v0.3.0
-	github.com/miekg/dns v1.0.8 // indirect
 	github.com/minio/minio-go v0.0.0-20190131015406-c8a261de75c1
 	github.com/mozillazg/go-cos v0.11.0
 	github.com/oklog/run v1.0.0
@@ -46,3 +45,5 @@ require (
 	gopkg.in/fsnotify/fsnotify.v1 v1.4.7 // indirect
 	gopkg.in/yaml.v2 v2.2.2
 )
+
+replace github.com/prometheus/prometheus => github.com/sylr/prometheus v0.0.0-20190225132417-c9ba3a604d80
