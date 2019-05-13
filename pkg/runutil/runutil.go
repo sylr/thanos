@@ -112,7 +112,6 @@ func CloseWithLogOnErr(logger log.Logger, closer io.Closer, format string, a ...
 // from caller function).
 func CloseWithErrCapture(err *error, closer io.Closer, format string, a ...interface{}) {
 	merr := tsdberrors.MultiError{}
-
 	merr.Add(*err)
 	merr.Add(errors.Wrapf(closer.Close(), format, a...))
 

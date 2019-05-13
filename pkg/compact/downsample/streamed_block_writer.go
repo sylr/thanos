@@ -171,7 +171,6 @@ func (w *streamedBlockWriter) Close() error {
 	w.finalized = true
 
 	merr := tsdberrors.MultiError{}
-
 	if w.ignoreFinalize {
 		// Close open file descriptors anyway.
 		for _, cl := range w.closers {

@@ -33,7 +33,7 @@ require (
 	github.com/opentracing/opentracing-go v1.1.0
 	github.com/pkg/errors v0.8.1
 	github.com/prometheus/client_golang v1.0.0
-	github.com/prometheus/common v0.6.0
+	github.com/prometheus/common v0.5.0
 	github.com/prometheus/procfs v0.0.3 // indirect
 	github.com/prometheus/prometheus v2.9.2+incompatible
 	github.com/prometheus/tsdb v0.8.0
@@ -54,3 +54,5 @@ require (
 	gopkg.in/fsnotify/fsnotify.v1 v1.4.7 // indirect
 	gopkg.in/yaml.v2 v2.2.2
 )
+
+replace github.com/prometheus/prometheus => github.com/sylr/prometheus v0.0.0-20190510132036-085fc219838d
