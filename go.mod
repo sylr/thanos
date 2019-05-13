@@ -9,22 +9,21 @@ require (
 	github.com/fortytw2/leaktest v1.3.0
 	github.com/fsnotify/fsnotify v1.4.7
 	github.com/go-kit/kit v0.8.0
-	github.com/gogo/protobuf v1.2.0
-	github.com/golang/snappy v0.0.0-20180518054509-2e65f85255db
+	github.com/gogo/protobuf v1.2.1
+	github.com/golang/snappy v0.0.1
 	github.com/google/martian v2.1.0+incompatible // indirect
 	github.com/googleapis/gax-go v2.0.2+incompatible // indirect
-	github.com/gophercloud/gophercloud v0.0.0-20181206160319-9d88c34913a9
+	github.com/gophercloud/gophercloud v0.0.0-20190301152420-fca40860790e
 	github.com/grpc-ecosystem/go-grpc-middleware v1.0.0
 	github.com/grpc-ecosystem/go-grpc-prometheus v0.0.0-20181025070259-68e3a13e4117
-	github.com/hashicorp/go-sockaddr v1.0.0
+	github.com/hashicorp/go-sockaddr v1.0.2
 	github.com/hashicorp/go-version v1.2.0
 	github.com/hashicorp/golang-lru v0.5.1
 	github.com/hashicorp/memberlist v0.1.3
-	github.com/julienschmidt/httprouter v1.1.0 // indirect
 	github.com/lovoo/gcloud-opentracing v0.3.0
 	github.com/miekg/dns v1.1.8
-	github.com/minio/minio-go v0.0.0-20200511070425-f33eae714a28
-	github.com/mozillazg/go-cos v0.11.0
+	github.com/minio/minio-go v0.0.0-20190131015406-c8a261de75c1
+	github.com/mozillazg/go-cos v0.12.0
 	github.com/mwitkow/go-conntrack v0.0.0-20161129095857-cc309e4a2223
 	github.com/oklog/run v1.0.0
 	github.com/oklog/ulid v1.3.1
@@ -33,19 +32,17 @@ require (
 	github.com/opentracing/basictracer-go v1.0.0
 	github.com/opentracing/opentracing-go v1.0.2
 	github.com/pkg/errors v0.8.1
-	github.com/prometheus/client_golang v0.9.2
-	github.com/prometheus/common v0.0.0-20181218105931-67670fe90761
-	github.com/prometheus/prometheus v0.0.0-20190328180107-4d60eb36dcbe
-	github.com/prometheus/tsdb v0.6.1
-	go.opencensus.io v0.19.0 // indirect
-	golang.org/x/net v0.0.0-20190213061140-3a22650c66bd
-	golang.org/x/oauth2 v0.0.0-20181203162652-d668ce993890
-	golang.org/x/sync v0.0.0-20181221193216-37e7f081c4d4
+	github.com/prometheus/client_golang v0.9.3-0.20190127221311-3c4408c8b829
+	github.com/prometheus/common v0.4.0
+	github.com/prometheus/prometheus v2.9.2+incompatible
+	github.com/prometheus/tsdb v0.7.2-0.20190507100016-6ac81cc7a9c5
+	golang.org/x/net v0.0.0-20190311183353-d8887717615a
+	golang.org/x/oauth2 v0.0.0-20190226205417-e64efc72b421
+	golang.org/x/sync v0.0.0-20190227155943-e225da77a7e6
 	golang.org/x/sys v0.0.0-20190322080309-f49334f85ddc // indirect
 	golang.org/x/text v0.3.1-0.20180807135948-17ff2d5776d2
-	google.golang.org/api v0.1.0
-	google.golang.org/appengine v1.4.0 // indirect
-	google.golang.org/grpc v1.17.0
+	google.golang.org/api v0.3.2
+	google.golang.org/grpc v1.19.1
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
 	gopkg.in/fsnotify/fsnotify.v1 v1.4.7 // indirect
 	gopkg.in/yaml.v2 v2.2.2
