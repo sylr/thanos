@@ -47,3 +47,5 @@ require (
 	gopkg.in/fsnotify/fsnotify.v1 v1.4.7 // indirect
 	gopkg.in/yaml.v2 v2.2.2
 )
+
+replace github.com/prometheus/prometheus => github.com/sylr/prometheus v0.0.0-20190510132036-085fc219838d
