@@ -35,6 +35,7 @@ import (
 	"github.com/improbable-eng/thanos/pkg/store/storepb"
 	"github.com/improbable-eng/thanos/pkg/tracing"
 	"github.com/improbable-eng/thanos/pkg/ui"
+	"github.com/improbable-eng/thanos/pkg/labelutil"
 	"github.com/oklog/run"
 	opentracing "github.com/opentracing/opentracing-go"
 	"github.com/pkg/errors"
@@ -43,7 +44,6 @@ import (
 	"github.com/prometheus/common/route"
 	"github.com/prometheus/prometheus/discovery/file"
 	"github.com/prometheus/prometheus/discovery/targetgroup"
-	promlabels "github.com/prometheus/prometheus/pkg/labels"
 	"github.com/prometheus/prometheus/promql"
 	"github.com/prometheus/prometheus/rules"
 	"github.com/prometheus/prometheus/storage/tsdb"
@@ -274,7 +274,7 @@ func runRule(
 	// Run rule evaluation and alert notifications.
 	var (
 		alertmgrs = newAlertmanagerSet(logger, alertmgrURLs, dns.ResolverType(dnsSDResolver))
-		alertQ    = alert.NewQueue(logger, reg, 10000, 100, labelsTSDBToProm(lset), alertExcludeLabels)
+		alertQ    = alert.NewQueue(logger, reg, 10000, 100, labelutil.TSDBLabelsToPromLabels(lset), alertExcludeLabels)
 		ruleMgrs  = thanosrule.Managers{}
 	)
 	{
@@ -428,7 +428,7 @@ func runRule(
 
 				level.Info(logger).Log("msg", "reload rule files", "numFiles", len(files))
 
-				if err := ruleMgrs.Update(dataDir, evalInterval, files); err != nil {
+				if err := ruleMgrs.Update(dataDir, evalInterval, files, lset); err != nil {
 					configSuccess.Set(0)
 					level.Error(logger).Log("msg", "reloading rules failed", "err", err)
 					continue
@@ -690,16 +690,6 @@ func parseFlagLabels(s []string) (labels.Labels, error) {
 		lset = append(lset, labels.Label{Name: parts[0], Value: val})
 	}
 	return lset, nil
-}
-
-func labelsTSDBToProm(lset labels.Labels) (res promlabels.Labels) {
-	for _, l := range lset {
-		res = append(res, promlabels.Label{
-			Name:  l.Name,
-			Value: l.Value,
-		})
-	}
-	return res
 }
 
 func removeDuplicateQueryAddrs(logger log.Logger, duplicatedQueriers prometheus.Counter, addrs []string) []string {
