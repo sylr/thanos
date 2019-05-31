@@ -14,6 +14,7 @@ import (
 	"github.com/improbable-eng/thanos/pkg/testutil"
 	"github.com/prometheus/prometheus/pkg/rulefmt"
 	"github.com/prometheus/prometheus/rules"
+	"github.com/prometheus/tsdb/labels"
 	yaml "gopkg.in/yaml.v2"
 )
 
@@ -92,14 +93,19 @@ groups:
 		storepb.PartialResponseStrategy_WARN:  rules.NewManager(&opts),
 	}
 
-	err = m.Update(dir, 10*time.Second, []string{
-		path.Join(dir, "no_strategy.yaml"),
-		path.Join(dir, "abort.yaml"),
-		path.Join(dir, "warn.yaml"),
-		path.Join(dir, "wrong.yaml"),
-		path.Join(dir, "combined.yaml"),
-		path.Join(dir, "combined_wrong.yaml"),
-	})
+	err = m.Update(
+		dir,
+		10*time.Second,
+		[]string{
+			path.Join(dir, "no_strategy.yaml"),
+			path.Join(dir, "abort.yaml"),
+			path.Join(dir, "warn.yaml"),
+			path.Join(dir, "wrong.yaml"),
+			path.Join(dir, "combined.yaml"),
+			path.Join(dir, "combined_wrong.yaml"),
+		},
+		labels.Labels{},
+	)
 
 	testutil.NotOk(t, err)
 	testutil.Assert(t, strings.HasPrefix(err.Error(), "2 errors: failed to unmarshal 'partial_response_strategy'"), err.Error())
