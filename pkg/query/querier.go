@@ -52,8 +52,8 @@ type queryable struct {
 }
 
 // Querier returns a new storage querier against the underlying proxy store API.
-func (q *queryable) Querier(ctx context.Context, mint, maxt int64) (storage.Querier, error) {
-	return newQuerier(ctx, q.logger, mint, maxt, q.replicaLabel, q.proxy, q.deduplicate, int64(q.maxResolutionMillis), q.partialResponse, q.warningReporter), nil
+func (q *queryable) Querier(ctx context.Context, mint, maxt int64) (storage.Querier, storage.Warnings, error) {
+	return newQuerier(ctx, q.logger, mint, maxt, q.replicaLabel, q.proxy, q.deduplicate, int64(q.maxResolutionMillis), q.partialResponse, q.warningReporter), nil, nil
 }
 
 type querier struct {
