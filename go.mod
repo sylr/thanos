@@ -35,7 +35,7 @@ require (
 	github.com/pkg/errors v0.8.1
 	github.com/prometheus/client_golang v1.1.0
 	github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4
-	github.com/prometheus/common v0.6.0
+	github.com/prometheus/common v0.7.0
 	github.com/prometheus/prometheus v1.8.2-0.20190913102521-8ab628b35467 // v1.8.2 is misleading as Prometheus does not have v2 module.
 	github.com/uber-go/atomic v1.4.0 // indirect
 	github.com/uber/jaeger-client-go v2.16.0+incompatible
@@ -59,6 +59,7 @@ require (
 // so that we don't get errors about being incompatible with the Go proxies.
 // See https://github.com/thanos-io/thanos/issues/1415
 replace (
+	github.com/prometheus/prometheus => github.com/sylr/prometheus v1.8.2-0.20191011084018-a1e74ee58bc1
 	golang.org/x/sys => golang.org/x/sys v0.0.0-20190412213103-97732733099d // v0.0.0-20190425145619-16072639606e (multiple-value "golang.org/x/sys/windows".GetCurrentProcess() in single-value context) Required to build properly on windows for github.com/elastic/go-sysinfo.
 	k8s.io/api => k8s.io/api v0.0.0-20190620084959-7cf5895f2711
 	k8s.io/apiextensions-apiserver => k8s.io/apiextensions-apiserver v0.0.0-20190620085554-14e95df34f1f
