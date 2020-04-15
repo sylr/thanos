@@ -10,7 +10,7 @@ require (
 	github.com/armon/go-metrics v0.3.0
 	github.com/bradfitz/gomemcache v0.0.0-20190913173617-a41fca850d0b
 	github.com/cespare/xxhash v1.1.0
-	github.com/cortexproject/cortex v0.6.1-0.20200228110116-92ab6cbe0995
+	github.com/cortexproject/cortex v1.0.1-0.20200415153838-a5d847afb12c
 	github.com/davecgh/go-spew v1.1.1
 	github.com/facette/natsort v0.0.0-20181210072756-2cd4dd1e2dcb
 	github.com/fatih/structtag v1.1.0
@@ -54,7 +54,6 @@ require (
 	golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45
 	golang.org/x/sync v0.0.0-20190911185100-cd5d95a43a6e
 	golang.org/x/text v0.3.2
-	golang.org/x/tools v0.0.0-20200306191617-51e69f71924f // indirect
 	google.golang.org/api v0.14.0
 	google.golang.org/genproto v0.0.0-20191115194625-c23dd37a84c9
 	google.golang.org/grpc v1.25.1
@@ -70,7 +69,7 @@ replace (
 	// Mitigation for: https://github.com/Azure/go-autorest/issues/414
 	github.com/Azure/go-autorest => github.com/Azure/go-autorest v12.3.0+incompatible
 	// Make sure Cortex is not forcing us to some other Prometheus version.
-	github.com/prometheus/prometheus => github.com/prometheus/prometheus v1.8.2-0.20200110114423-1e64d757f711 // master ~ v2.15.2
+	github.com/prometheus/prometheus => github.com/prometheus/prometheus v1.8.2-0.20200213233353-b90be6f32a33 // 2.16.0
 	k8s.io/api => k8s.io/api v0.0.0-20190620084959-7cf5895f2711
 	k8s.io/apiextensions-apiserver => k8s.io/apiextensions-apiserver v0.0.0-20190620085554-14e95df34f1f
 	k8s.io/apimachinery => k8s.io/apimachinery v0.0.0-20190612205821-1799e75a0719

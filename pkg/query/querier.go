@@ -240,6 +240,10 @@ func (q *querier) Select(params *storage.SelectParams, ms ...*labels.Matcher) (s
 	return newDedupSeriesSet(set, q.replicaLabels), warns, nil
 }
 
+func (q *querier) SelectSorted(params *storage.SelectParams, ms ...*labels.Matcher) (storage.SeriesSet, storage.Warnings, error) {
+	return q.Select(params, ms...)
+}
+
 // sortDedupLabels re-sorts the set so that the same series with different replica
 // labels are coming right after each other.
 func sortDedupLabels(set []storepb.Series, replicaLabels map[string]struct{}) {
