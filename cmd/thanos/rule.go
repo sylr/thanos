@@ -445,7 +445,6 @@ func runRule(
 				Logger:      logger,
 				Appendable:  db,
 				ExternalURL: nil,
-				TSDB:        db,
 				ResendDelay: resendDelay,
 			},
 			queryFuncCreator(logger, queryClients, metrics.duplicatedQuery, metrics.ruleEvalWarnings),
