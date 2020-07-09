@@ -72,7 +72,7 @@ require (
 // See https://github.com/thanos-io/thanos/issues/1415
 replace (
 	// Make sure Cortex is not forcing us to some other Prometheus version.
-	github.com/prometheus/prometheus => github.com/prometheus/prometheus v1.8.2-0.20200707115909-30505a202a4c
+	github.com/prometheus/prometheus => github.com/sylr/prometheus v1.8.2-0.20200709092440-2c09f75a65c8
 	k8s.io/klog => k8s.io/klog v0.3.1
 	k8s.io/kube-openapi => k8s.io/kube-openapi v0.0.0-20190228160746-b3a7cee44a30
 )
